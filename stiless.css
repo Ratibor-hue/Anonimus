@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Добавь фоновое изображение */
+    background-size: cover; /* Заполнение фона */
+    background-position: center; /* Центрирование фона */
+    color: #fff; /* Цвет текста для контраста */
+}
+
+.fixed-header {
+    position: fixed; /* Фиксированное положение */
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для заголовка */
+    padding: 10px 20px; /* Отступы */
+    display: flex; /* Используем Flexbox для расположения логотипа и меню */
+    align-items: center; /* Центрируем по вертикали */
+    z-index: 1000; /* Чтобы меню было поверх других элементов */
+}
+
+.logo {
+    margin-right: 20px; /* Отступ справа от логотипа */
+}
+
+.logo img {
+    height: 50px; /* Высота логотипа */
+}
+
+nav {
+    flex-grow: 1; /* Занимает оставшееся пространство */
+    display: flex; /* Используем Flexbox для навигации */
+    justify-content: center; /* Центрируем меню */
+}
+
+nav ul {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; /* Используем Flexbox для списка */
+}
+
+nav ul li {
+    margin: 0 15px; /* Отступы между элементами меню */
+}
+
+nav a {
+    color: #fff; 
+    text-decoration: none; 
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+nav a:hover {
+    color: red; /* Подсветка текста при наведении */
+}
+
+main {
+    padding: 80px 20px 20px; /* Добавляем отступ сверху, чтобы контент не перекрывался меню */
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для основного контента */
+    margin: 20px; 
+    border-radius: 10px; 
+}
+
+section {
+    margin-bottom: 20px; 
+}
+
+h2 {
+    border-bottom: 2px solid #ff9900; 
+    padding-bottom: 5px; 
+}
+
+footer {
+    text-align: center; 
+    padding: 10px 0; 
+    background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для подвала */
+    position: fixed; /* Фиксированное положение */
+    left: 0; 
+    right: 0; 
+    bottom: 0; /* Прикрепляем к низу страницы */
+    z-index: 1000; /* Чтобы подвал был поверх других элементов */
+}
+
+.floating-footer {
+    animation: float 3s ease-in-out infinite; /* Плавание текста */
+}
+
+@keyframes float {
+    0% { transform: translateY(0); } 
+    50% { transform: translateY(-5px); } 
+    100% { transform: translateY(0); } 
+}
+
+blockquote {
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 10px; 
+    border-left: 5px solid #ff9900; 
+    margin: 10px 0; 
+}
+
+/* Анимация появления текста */
+.fade-in {
+    opacity: 0; 
+    animation: fadeIn 1s forwards; /* Анимация длится 1 секунду и сохраняет конечное состояние */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; } 
+    100% { opacity: 1; } 
+}
+
+/* Задержка анимации для каждой секции */
+.intro { animation-delay: 0.2s; } 
+.about-us { animation-delay: 0.4s; } 
+.popular-games { animation-delay: 0.6s; } 
+.news { animation-delay: 0.8s; } 
+.promotions { animation-delay: 1s; } 
+.reviews { animation-delay: 1.2s; } 
+.registration { animation-delay: 0.4s; } /* Задержка для страницы регистрации */ 
+.contact-info { animation-delay: 0.4s; } /* Задержка для страницы контактов */ 
+
+/* Стили для формы регистрации */
+.registration {
+    background: rgba(30, 30, 30, 0.8); /* Темный полупрозрачный фон */
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для формы */
+    max-width: 400px; /* Максимальная ширина формы */
+    margin: 20px auto; /* Центрирование формы */
+}
+
+.registration h2 {
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: #ff9900; /* Цвет заголовка */
+}
+
+.registration label {
+    display: block; /* Блоковое отображение для меток */
+    margin: 10px 0 5px; /* Отступы */
+    color: #fff; /* Цвет текста меток */
+}
+
+.registration input {
+    width: 90%; /* Уменьшенная ширина до 90% */
+    padding: 10px; /* Отступы внутри поля */
+    margin-bottom: 15px; /* Отступ снизу */
+    border: 1px solid #ff9900; /* Рамка */
+    border-radius: 5px; /* Закругление углов */
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    color: #fff; /* Цвет текста */
+    transition: border-color 0.3s; /* Плавный переход для рамки */
+    margin-left: auto; /* Центрирование полей ввода */
+    margin-right: auto; /* Центрирование полей ввода */
+}
+
+.registration input:focus {
+    border-color: #ffcc00; /* Цвет рамки при фокусе */
+    outline: none; /* Убираем стандартный контур */
+}
+
+.registration button {
+    width: 100%; /* Полная ширина кнопки */
+    padding: 10px; /* Отступы внутри кнопки */
+    background: #ff9900; /* Цвет фона кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругление углов */
+    color: #fff; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background 0.3s; /* Плавный переход для фона */
+}
+
+.registration button:hover {
+    background: #e68a00; /* Цвет фона при наведении */
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Используем Flexbox для списка */
+}
+
+nav ul li {
+    position: relative; /* Для выпадающего меню */
+    margin: 0 15px; /* Отступы между элементами меню */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+nav a:hover {
+    color: red; /* Подсветка текста при наведении */
+}
+
+nav ul li ul {
+    display: none; /* Скрываем выпадающее меню по умолчанию */
+    position: absolute; /* Позиционирование выпадающего меню */
+    top: 100%; /* Снизу элемента меню */
+    left: 0; /* Слева */
+    background: rgba(0, 0, 0, 0.8); /* Фон выпадающего меню */
+    border-radius: 5px; /* Закругление углов */
+    padding: 10px; /* Отступы */
+    z-index: 1000; /* Чтобы выпадающее меню было поверх других элементов */
+}
+
+nav ul li:hover ul {
+    display: block; /* Показываем выпадающее меню при наведении */
+}
+
+nav ul li ul li {
+    margin: 0; /* Убираем отступы для выпадающего меню */
+}
+
+nav ul li ul li a {
+    display: block; /* Блочное отображение для ссылок в выпадающем меню */
+    padding: 5px 10px; /* Отступы */
+    color: #fff; /* Цвет текста */
+}
+
+nav ul li ul li a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Подсветка при наведении */
+}
+/* Добавляем стиль для кнопки */
+        .content-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px auto;
+            background-color: #007BFF; /* Цвет фона кнопки */
+            color: white; /* Цвет текста */
+            text-align: center; /* Выравнивание текста по центру */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Закругленные углы */
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 16px; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s; /* Плавный переход цвета фона */
+        }
+
+        .content-button:hover {
+            background-color: #0056b3; /* Цвет фона при наведении */
+        }
+/* Анимация появления элемента при прокрутке */
+.scroll-animation {
+    opacity: 0; /* Начальное состояние: скрыто */
+    transform: translateY(20px); /* Начальное положение: смещено вниз */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Плавная анимация появления */
+}
+
+/* Когда элемент становится видимым при прокрутке */
+.scroll-animation.visible {
+    opacity: 1; /* Элемент становится видимым */
+    transform: translateY(0); /* Элемент возвращается в исходное положение */
+}

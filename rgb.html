@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesss.css">
+    <title>RGB - Игровой Магазин</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Устанавливаем вертикальное расположение элементов */
+            justify-content: center; /* Центрируем содержимое по вертикали */
+            align-items: center; /* Центрируем содержимое по горизонтали */
+            height: 100vh; /* Высота на весь экран */
+            transition: background-color 1s; /* Плавный переход для изменения цвета фона */
+        }
+        .color-button {
+            padding: 15px 30px; /* Отступы внутри кнопки */
+            font-size: 18px; /* Размер шрифта */
+            background-color: #ff9900; /* Цвет фона кнопки */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Закругление углов кнопки */
+            color: white; /* Цвет текста кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s; /* Плавный переход для фона кнопки */
+        }
+        .color-button:hover {
+            background-color: #e68a00; /* Цвет фона кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+    <div class="logo">
+        <img src="anonymous_logo.png" alt="Логотип Анонимус">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="games.html">Игры</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+            <li>
+                <a href="#">Дополнительно</a>
+                <ul>
+                    <li><a href="rgb.html">RGB</a></li>
+                    <li><a href="gps.html">GPS</a></li> <!-- Новая ссылка на страницу GPS -->
+                    <li><a href="fetch.html">Fetch API</a></li>
+                </ul>
+            </li>
+            <li><a href="registration.html">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <button class="color-button" id="startButton">Запустить смену цветов</button> <!-- Кнопка для запуска смены цветов -->
+        <script>
+            const colors = [
+                '#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD',
+                '#E74C3C', '#3498DB', '#2ECC71', '#1ABC9C', '#9B59B6',
+                '#34495E', '#F39C12', '#D35400', '#C0392B', '#2980B9',
+                '#27AE60', '#8E44AD', '#F1C40F', '#2C3E50', '#16A085',
+                '#FF5733', '#FFBD33', '#FF33A1', '#A133FF', '#33FFBD'
+            ]; // Массив цветов
+
+            let currentIndex = 0; // Индекс текущего цвета
+            let interval; // Переменная для хранения интервала
+
+            document.getElementById('startButton').addEventListener('click', function() {
+                if (interval) {
+                    clearInterval(interval); // Остановить, если уже запущен
+                }
+                interval = setInterval(() => {
+                    document.body.style.backgroundColor = colors[currentIndex]; // Меняем цвет фона
+                    currentIndex = (currentIndex + 1) % colors.length; // Зацикливаем индексы
+                }, 1000); // Менять цвет каждую секунду
+            });
+        </script>
+    </main>
+    <footer class="floating-footer">
+        <p>&copy; 2024 Игровой Магазин</p>
+    </footer>
+</body>
+</html>

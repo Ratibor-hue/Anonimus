@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>GPS - Узнать координаты</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .location-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #008CBA;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .location-button:hover {
+            background-color: #005f73;
+        }
+        #coordinates {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Скрываем изначально */
+        }
+    </style>
+</head>
+<body>
+   <header class="fixed-header header-animation">
+        <div class="logo">
+            <img src="anonymous_logo.png" alt="Логотип Анонимус">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="games.html">Игры</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li>
+                    <a href="#">Дополнительно</a>
+                    <ul>
+                        <li><a href="rgb.html">RGB</a></li>
+                        <li><a href="gps.html">GPS</a></li>
+                        <li><a href="fetch.html">Fetch API</a></li>
+                    </ul>
+                </li>
+                <li><a href="registration.html">Регистрация</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>GPS - Узнать координаты</h1>
+        <button class="location-button" id="locationButton">Получить координаты</button>
+        <div id="coordinates"></div>
+    </main>
+    
+    <footer class="floating-footer">
+        <p>&copy; 2024 Игровой Магазин</p>
+    </footer>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("coordinates").innerHTML = "Геолокация не поддерживается вашим браузером.";
+            }
+        }
+
+        function showPosition(position) {
+            const coords = "Широта: " + position.coords.latitude + "<br>Долгота: " + position.coords.longitude;
+            const coordinatesDiv = document.getElementById("coordinates");
+            coordinatesDiv.innerHTML = coords;
+            coordinatesDiv.style.display = "block"; // Показываем координаты
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById("coordinates").innerHTML = "Пользователь отклонил запрос на геолокацию.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById("coordinates").innerHTML = "Информация о местоположении недоступна.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById("coordinates").innerHTML = "Запрос на получение местоположения истек.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById("coordinates").innerHTML = "Произошла неизвестная ошибка.";
+                    break;
+            }
+            document.getElementById("coordinates").style.display = "block"; // Показываем сообщение об ошибке
+        }
+
+        document.getElementById("locationButton").addEventListener("click", getLocation);
+    </script>
+</body>
+</html>

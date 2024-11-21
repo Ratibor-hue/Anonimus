@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<albums>
+    <album>
+        <title>Album 1</title>
+        <artist>Artist 1</artist>
+        <year>2023</year>
+        <genre>Rock</genre>
+        <description>Описание альбома 1.</description>
+    </album>
+    <album>
+        <title>Album 2</title>
+        <artist>Artist 2</artist>
+        <year>2022</year>
+        <genre>Pop</genre>
+        <description>Описание альбома 2.</description>
+    </album>
+    <album>
+        <title>Album 3</title>
+        <artist>Artist 3</artist>
+        <year>2021</year>
+        <genre>Jazz</genre>
+        <description>Описание альбома 3.</description>
+    </album>
+</albums>

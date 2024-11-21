@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Регистрация - Игровой Магазин</title>
+</head>
+<body>
+<header class="fixed-header">
+    <div class="logo">
+        <img src="anonymous_logo.png" alt="Логотип Анонимус">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="games.html">Игры</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+            <li>
+                <a href="#">Дополнительно</a>
+                <ul>
+                    <li><a href="rgb.html">RGB</a></li>
+                    <li><a href="gps.html">GPS</a></li> <!-- Новая ссылка на страницу GPS -->
+                    <li><a href="fetch.html">Fetch API</a></li>
+                </ul>
+            </li>
+            <li><a href="registration.html">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="registration fade-in">
+        <h2>Регистрация</h2>
+        <form>
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required placeholder="Введите ваше имя пользователя">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="email" required placeholder="Введите вашу электронную почту">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </section>
+</main>
+<footer class="floating-footer">
+    <p>&copy; 2024 Игровой Магазин</p>
+</footer>
+</body>
+</html>
